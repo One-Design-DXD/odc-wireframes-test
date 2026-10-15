@@ -72,17 +72,17 @@ If you notice a pattern worth codifying as a skill for this project, suggest it 
 
 ## Design system
 
-The design system lives in Figma. See `design/figma-references.md` for all file URLs.
+The design system is **ODC Design System 3.0** in Figma (see `design/figma-references.md`). Its tokens are translated in `src/styles/tokens.css`, and `design/design-system.md` covers the naming, rationale and open questions. Use these tokens. Don't hardcode values.
 
 **Key principles for this design system:**
-- [e.g., "Generous whitespace. Dense layouts are wrong for this brand."]
-- [e.g., "Primary color is used sparingly — never for entire backgrounds."]
-- [e.g., "Sans-serif only. No decorative fonts."]
+- Everything is fluid (Utopia `clamp()`, 320px → 2560px). Type and space scale with the viewport, so don't add per-breakpoint overrides for them.
+- Use semantic color tokens (`--fg-*`, `--bg-*`) in components, not primitives (`--color-*`, `--black48`). Hierarchy maps to APCA contrast levels.
+- One family: Geist Sans (Geist Mono for code). Use the default font features in `--font-features`.
 
-**Tokens and naming:**
-- Typography tokens: [pattern used, e.g., `text-heading-xl`, `text-body-md`]
-- Spacing scale: [e.g., "4px base, use Tailwind's default scale"]
-- Color tokens: [pattern, e.g., `color-primary-500`, `color-neutral-900`]
+**Tokens and naming:** (Figma `/` → CSS `-`; camelCase is kept)
+- Typography: `--text-{xs|sm|base|lg|xl|2xl…9xl}`. Text-style classes are `.{heading|paragraph|ui}-{step}-{weight}`, e.g. `.ui-base-400`.
+- Spacing: `--space-{4xs…5xl}`, plus ranges like `--space-sm-5xl`.
+- Color: primitives `--color-{hue}-{50…950}`, `--black{NN}`, `--white{NN}`. Tokens `--fg-{primary|invWeak|valid…}`, `--bg-{…}`.
 
 **Components mapped via Code Connect:**
 [List or reference — Claude should check `src/components/` for `*.figma.tsx` files to see the current state. If you add new component mappings, update this list.]
@@ -95,7 +95,7 @@ The design system lives in Figma. See `design/figma-references.md` for all file 
 ## Technical conventions
 
 **Framework:** [e.g., React + TypeScript + Tailwind]
-**Breakpoints:** [e.g., 320, 768, 1280, 1920]
+**Breakpoints:** min 320 · sm 704 (44rem) · md 1024 · lg 1440 · xl 1920 · max 2560. See `design/design-system.md`.
 **Accessibility target:** WCAG 2.2 AA (non-negotiable across all projects)
 **Browser support:** [e.g., "Last 2 versions of evergreen browsers; no IE"]
 
