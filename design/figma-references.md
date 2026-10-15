@@ -11,7 +11,8 @@ When you add, rename, or archive a Figma file for this project, update this doc 
 ### Design system library
 The component library for this project. All components here should have Code Connect mappings in `src/components/` with matching `*.figma.tsx` files.
 
-- **URL:** `https://www.figma.com/design/[file-id]/[Client]-Design-System`
+- **URL:** https://www.figma.com/design/l5w8YlFfqkzklYEY75XZCW/ODC-Design-System-3.0
+- **Tokens page:** https://www.figma.com/design/l5w8YlFfqkzklYEY75XZCW/ODC-Design-System-3.0?node-id=2394-10526 → translated in `src/styles/tokens.css`, documented in `design/design-system.md`
 - **Owner:** [Designer name]
 - **Linked to repo:** Yes, via Code Connect UI → see `figma.config.json`
 
@@ -45,9 +46,9 @@ Specific frames that come up often. Copy the "Copy link to selection" URL from F
 
 Anything client-specific worth noting here. Examples:
 
-- Breakpoints used in design: 320, 768, 1280, 1920
+- Breakpoints used in design: 320, 704, 1024, 1440, 1920, 2560 (Tailwind names min/sm/md/lg/xl/max)
 - Icon system: [e.g., Lucide, custom SVGs in `src/components/icons/`]
-- Typography token names use this pattern: `text-heading-[size]`, `text-body-[size]`
+- Text styles use `role/step-weight` (e.g. `heading/9xl-275`, `ui/base-400`). Font sizes use `text/[step]` on a fluid Utopia scale.
 - Any gotchas specific to this file (e.g., "the old hero variant in the archive page is deprecated — don't use it as reference")
 
 ---
